@@ -10,44 +10,18 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="styles.css">
     <script src="myScript.js"></script>
+	<script src="googleApiUtils.js"></script>
   </head>
-
   <header>
     <h1>ecomaps</h1>
   </header>
 
 
-  <body onload="hello();">
+  <body>
+	<div id="map"></div>
+	<div class="homepage">
 
-      <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
-      <script>window.twttr = (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0],
-              t = window.twttr || {};
-          if (d.getElementById(id)) return t;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://platform.twitter.com/widgets.js";
-          fjs.parentNode.insertBefore(js, fjs);
-
-          t._e = [];
-          t.ready = function(f) {
-              t._e.push(f);
-          };
-
-          return t;
-      }(document, "script", "twitter-wjs"));</script>
-
-
-  <div class="homepage">
-
-        <div id="map"></div>
+        
 	  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
 
       <div class="parentContainer">
@@ -56,57 +30,33 @@
 
           <div class="origin">
             <i class="material-icons buttonIcon" onclick="findMyLocation()">home</i>
-          <input type="text" id="origin" placeholder="Where are you now?">
+          <input type="text" id="StartLocation" placeholder="Where are you now?">
           </div>
 
           <div class ="destination">
             <i class="material-icons buttonIcon">location_on</i>
-            <input type="text" id="destination" placeholder="Where are you going?">
+            <input type="text" id="endLocation" placeholder="Where are you going?">
           </div>
 
         </div>
 
         <div class="buttonIconContainer">
-          <img src="walk.png" id="walk" class="buttonIcon modeButton" onclick="onClickMode('walk')">
-          <img src="bike.png" id="bike" class="buttonIcon modeButton" onclick="onClickMode('bike')">
-          <img src="train.png" id="train" class="buttonIcon modeButton" onclick="onClickMode('train')">
-          <img src="bus.png" id="bus" class="buttonIcon modeButton" onclick="onClickMode('bus')">
-          <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('car')">
+          <img src="walk.png" id="WALKING" class="buttonIcon modeButton" onclick="onClickMode('WALKING')">
+          <img src="bike.png" id="BICYCLING" class="buttonIcon modeButton" onclick="onClickMode('BICYCLING')">
+          <img src="train.png" id="TRANSIT" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT')">
+          <img src="bus.png" id="TRANSIT1" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT1')">
+          <img src="car.png" id="DRIVING" class="buttonIcon modeButton" onclick="onClickMode('DRIVING')">
         </div>
 
           <div id="submitButton">
-          <img src="button.png" class= "submitButton" onclick="submit()">
+          <img id= "submit" src="button.png" onclick="DirectionsHandeler()">
+			<button id="LetsGo">Click me</button>
           </div>
-
-          <hr>
-
-          <div class="fb-share-button"
-               data-href="https://giphy.com/search/dog-gif"
-               data-layout="button"
-               data-size="small"
-               data-mobile-iframe="true">
-              <a class="fb-xfbml-parse-ignore"
-                 target="_blank"
-                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgiphy.com%2Fsearch%2Fdog-gif&amp;src=sdkpreparse">
-                  Share
-              </a>
-          </div>
-
-          <a class="twitter-share-button"
-             href="https://twitter.com/share"
-             data-size="default"
-             data-text="Make Nz Carbon Free!"
-             data-url="https://giphy.com/search/dog-gif"
-             data-hashtags="summeroftech,zerocarbon,ecomuffins">
-              Tweet
-          </a>
-
-          <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-          <script type="IN/Share"></script>
 
       </div>
-
+    <div id="map"></div>
+	<div id="UserInput">
+	<p id="Input"></p>
 	</div>
-
   </body>
 </html>
