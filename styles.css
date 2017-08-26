@@ -4,6 +4,7 @@
  * element that contains the map. */
 #map {
     height: 100%;
+    width: 100%
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -15,6 +16,11 @@ html, body {
 
 h2{
     font-weight: bold;
+    color: white;
+}
+
+.parentContainer{
+    position: absolute;
 }
 
 .homepage {
@@ -29,6 +35,8 @@ h2{
     background-color: white;
     justify-content: center;
     align-items: center;
+    margin-bottom:5%;
+    margin-top: 5%;
 
 }
 #startlocation{
@@ -51,6 +59,7 @@ h2{
     background-color: white;
     justify-content: center;
     align-items: flex-start;
+    margin-bottom: 5%;
 
 }
 
@@ -92,7 +101,7 @@ header{
 
 }
 
-.submitButton{
+.letsGo{
     height: 50px;
     margin-top: 10px;
 }
@@ -121,23 +130,36 @@ input{
     background-color: #79a854!important;
 }
 
-#WALKING{
+#walk{
     cursor: pointer;
 }
 
-#BICYCLING{
+#bike{
     cursor: pointer;
 }
 
-#TRANSIT{
+#train{
     cursor: pointer;
 }
 
-#TRANSIT1{
+#bus{
     cursor: pointer;
 }
 
-#DRIVING{
+#car{
     cursor: pointer;
 }
 
+#journeyHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.giveLocation{
+    cursor: pointer;
+}
+
+#carbonEmissionsPanel{
+    background-color: #9b9b9b;
+
+}
