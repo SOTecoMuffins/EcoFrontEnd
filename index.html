@@ -1,85 +1,101 @@
 <html>
-  <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		  rel="stylesheet">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 
-	<title>EcoMaps</title>
-	<meta name="viewport" content="initial-scale=1.0">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="styles.css">
+    <title>EcoMaps</title>
+
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+
     <script src="myScript.js"></script>
-	<script src="googleApiUtils.js"></script>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  </head>
-  <header>
-    <img src="logo.png" >
-  </header>
+    <script src="googleApiUtils.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<header>
+
+    <h1>ecomaps</h1>
+
+</header>
 
 
-  <body>
+<body>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-      fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-  <script>window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-          t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      t._e = [];
-      t.ready = function(f) {
-          t._e.push(f);
-      };
-      return t;
-  }(document, "script", "twitter-wjs"));</script>
-	<div id="map"></div>
+<script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+        t._e.push(f);
+    };
+    return t;
+}(document, "script", "twitter-wjs"));</script>
 
 
-	<div class="homepage">
+<div class="homepage">
 
+    <div id="map"></div>
 
-	  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
 
-      <div class="parentContainer">
+    <div class="parentContainer">
 
         <div class="inputContainer">
 
-          <div class="origin">
-            <i class="material-icons buttonIcon" onclick="findMyLocation()">home</i>
-          <input type="text" id="StartLocation" placeholder="Where are you now?">
-          </div>
+            <div id="journeyHeader">
+            <h2>Your journey begins here</h2>
+            </div>
 
-          <div class ="destination">
-            <i class="material-icons buttonIcon">location_on</i>
-            <input type="text" id="endLocation" placeholder="Where are you going?">
-          </div>
+            <div class="origin">
+
+                <i class="material-icons buttonIcon giveLocation" onclick="findMyLocation()">home</i>
+                <input type="text" id="StartLocation" placeholder="Where are you now?">
+
+            </div>
+
+            <div class ="destination">
+
+                <i class="material-icons buttonIcon">location_on</i>
+                <input type="text" id="endLocation" placeholder="Where are you going?">
+
+            </div>
 
         </div>
 
         <div class="buttonIconContainer">
-          <img src="walk.png" id="walk" class="buttonIcon modeButton" onclick="onClickMode('WALKING', 'walk')">
-          <img src="bike.png" id="bike" class="buttonIcon modeButton" onclick="onClickMode('BICYCLING', 'bike')">
-          <img src="train.png" id="train" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'train')">
-          <img src="bus.png" id="bus" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'bus')">
-          <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('DRIVING', 'car')">
+            <img src="walk.png" id="walk" class="buttonIcon modeButton" onclick="onClickMode('WALKING', 'walk')">
+            <img src="bike.png" id="bike" class="buttonIcon modeButton" onclick="onClickMode('BICYCLING', 'bike')">
+            <img src="train.png" id="train" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'train')">
+            <img src="bus.png" id="bus" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'bus')">
+            <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('DRIVING', 'car')">
         </div>
 
-          <div id="submitButton">
-          <img id= "LetsGo" src="button.png" >
-          </div>
+        <div id="submitButton">
 
-          <hr>
+            <img id= "LetsGo" src="button.png" >
 
+        </div>
+        
+        <hr>
+        
           <div class="fb-share-button" 
             data-href="https://sotecomuffins.github.io/EcoFrontEnd/" 
             data-layout="button_count" 
@@ -89,21 +105,21 @@
             target="_blank" 
             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsotecomuffins.github.io%2FEcoFrontEnd%2F&amp;src=sdkpreparse">Share
             </a>
-          </div>
+        </div>
 
-          <a class="twitter-share-button"
-             href="https://twitter.com/share"
-             data-size="default"
-             data-text="Make Nz Carbon Free!"
-             data-url="https://giphy.com/search/dog-gif"
-             data-hashtags="summeroftech,zerocarbon,ecomuffins">
-              Tweet
-          </a>
+        <a class="twitter-share-button"
+           href="https://twitter.com/share"
+           data-size="default"
+           data-text="Make Nz Carbon Free!"
+           data-url="https://giphy.com/search/dog-gif"
+           data-hashtags="summeroftech,zerocarbon,ecomuffins">
+            Tweet
+        </a>
 
-          <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-          <script type="IN/Share"></script>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+        <script type="IN/Share"></script>
 
-
-      </div>
-  </body>
+    </div>
+</div>
+</body>
 </html>
