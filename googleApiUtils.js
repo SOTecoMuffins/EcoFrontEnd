@@ -13,8 +13,8 @@
 		});
 		 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -41.2865, lng: 174.7762},
-          zoom: 6,
+          center: {lat: -36.8485, lng: 174.7633},
+          zoom: 10,
 		  polylineOptions: {
 		  strokeColor: "#79A854"
           },
