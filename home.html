@@ -1,13 +1,12 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
       #map {
-        height: 100%;
+        height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -17,21 +16,17 @@
       }
     </style>
   </head>
-  <body onload="hello();">
-  <script src="myScript.js"></script>
+  <body>
+  <script type="text/javascript" src="myScript.js"></script>
     <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
+	<div id="UserInput">
+    <button onclick="findMyLocation()">Find My Location</button>
+	<input type="text" id="startLocation" onClick="Clear(startLocation)" value="Please Enter Start Location">
+	<input type="text" id="endLocation" onClick="Clear(endLocation)" value="Please Enter End Location">
+	<p id="Input"></p>
+	</div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZg3m5zC4rkzQpxn6dmmccgwrmyuOcVVk&callback=initMap">
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"
-    async defer></script>
-	<script src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback"
-    ></script>
   </body>
 </html>
