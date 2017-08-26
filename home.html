@@ -41,22 +41,17 @@
         </div>
 
         <div class="buttonIconContainer">
-          <img src="walk.png" id="WALKING" class="buttonIcon modeButton" onclick="onClickMode('WALKING')">
-          <img src="bike.png" id="BICYCLING" class="buttonIcon modeButton" onclick="onClickMode('BICYCLING')">
-          <img src="train.png" id="TRANSIT" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT')">
-          <img src="bus.png" id="TRANSIT1" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT1')">
-          <img src="car.png" id="DRIVING" class="buttonIcon modeButton" onclick="onClickMode('DRIVING')">
+          <img src="walk.png" id="walk" class="buttonIcon modeButton" onclick="onClickMode('WALKING', 'walk')">
+          <img src="bike.png" id="bike" class="buttonIcon modeButton" onclick="onClickMode('BICYCLING', 'bike')">
+          <img src="train.png" id="train" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'train')">
+          <img src="bus.png" id="bus" class="buttonIcon modeButton" onclick="onClickMode('TRANSIT', 'bus')">
+          <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('DRIVING', 'car')">
         </div>
 
           <div id="submitButton">
-          <img id= "submit" src="button.png" onclick="DirectionsHandeler()">
-			<button id="LetsGo">Click me</button>
+          <img id= "LetsGo" src="button.png" >
           </div>
 
       </div>
-    <div id="map"></div>
-	<div id="UserInput">
-	<p id="Input"></p>
-	</div>
   </body>
 </html>

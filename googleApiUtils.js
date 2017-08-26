@@ -1,5 +1,7 @@
  var map, infoWindow, pos, ride;
  var previousMode = "WALKING";
+ var mode1 = 'walk'
+ 
  var posAdded = new Boolean(false);
       function initMap() {
 		var directionsService = new google.maps.DirectionsService;
@@ -83,24 +85,20 @@
           }
         });
       }
-	function onClickMode(mode){
+	function onClickMode(mode, x){
 	removeStyle();
-	if(mode == "TRANSIT1"){
-		previousMode = "TRANSIT";
-		mode1 = mode;
-	}else{
     previousMode = mode;
-	}
+	mode1 = x;
     addStyle();
-}
-function removeStyle(){
-    var previous = document.getElementById(previousMode);
+	}
+	function removeStyle(){
+    var previous = document.getElementById(mode1);
     previous.classList.remove("highlightedIcon");
-}
+	}
 
-function addStyle(){
-    var current = document.getElementById(previousMode);
+	function addStyle(){
+    var current = document.getElementById(mode1);
     current.classList.add("highlightedIcon");
-}
+	}
 
 	  
