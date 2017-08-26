@@ -31,7 +31,7 @@ h2{
     align-items: center;
 
 }
-#origin{
+#startlocation{
     width: 100%;
     height: 50px;
     justify-content: center;
@@ -54,7 +54,7 @@ h2{
 
 }
 
-#destination{
+#endLocation{
     width: 100%;
     height: 50px;
     margin: 10px;
@@ -71,6 +71,10 @@ h2{
     align-items: center;
     height: 50px;
     margin: 10px;
+}
+
+.locateMe{
+    cursor: pointer;
 }
 
 .buttonIconContainer{
@@ -105,26 +109,35 @@ header{
     border-radius: 50%;
 }
 
+::placeholder{
+    color: #79a854;
+}
+
+input{
+    color: #79a854;
+}
+
 .highlightedIcon{
     background-color: #79a854!important;
 }
 
-#walk{
+#WALKING{
     cursor: pointer;
 }
 
-#bike{
+#BICYCLING{
     cursor: pointer;
 }
 
-#train{
+#TRANSIT{
     cursor: pointer;
 }
 
-#bus{
+#TRANSIT1{
     cursor: pointer;
 }
 
-#car{
+#DRIVING{
     cursor: pointer;
 }
+
