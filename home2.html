@@ -1,0 +1,60 @@
+<html>
+  <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		  rel="stylesheet">
+
+	<title>Simple Map</title>
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="myScript.js"></script>
+  </head>
+
+  <header>
+    <h1>ecomaps</h1>
+  </header>
+
+
+  <body onload="hello();">
+
+	<div class="homepage">
+
+        <div id="map"></div>
+	  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
+
+      <div class="parentContainer">
+
+        <div class="inputContainer">
+
+          <div class="origin">
+            <i class="material-icons buttonIcon" onclick="findMyLocation()">home</i>
+          <input type="text" id="origin" placeholder="Where are you now?">
+          </div>
+
+          <div class ="destination">
+            <i class="material-icons buttonIcon">location_on</i>
+            <input type="text" id="destination" placeholder="Where are you going?">
+          </div>
+
+        </div>
+
+        <div class="buttonIconContainer">
+          <img src="walk.png" id="walk" class="buttonIcon modeButton" onclick="onClickMode('walk')">
+          <img src="bike.png" id="bike" class="buttonIcon modeButton" onclick="onClickMode('bike')">
+          <img src="train.png" id="train" class="buttonIcon modeButton" onclick="onClickMode('train')">
+          <img src="bus.png" id="bus" class="buttonIcon modeButton" onclick="onClickMode('bus')">
+          <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('car')">
+        </div>
+
+          <div id="submitButton">
+          <img src="button.png" class= "submitButton" onclick="submit()">
+          </div>
+
+      </div>
+
+	</div>
+
+  </body>
+</html>
