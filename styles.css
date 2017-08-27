@@ -13,17 +13,19 @@ html, body {
     font-family: "Source Sans Pro"
 }
 
-h2 {
+h2{
     font-weight: bold;
     color: white;
 }
 
-#logoPic {
-    height: 50px;
+.parentContainer{
+    position: absolute;
+   font-weight: bold;
+   color: white;
 }
 
-.parentContainer {
-    position: absolute;
+#logoPic {
+    height: 50px;
 }
 
 .homepage {
@@ -64,7 +66,6 @@ h2 {
     justify-content: center;
     align-items: flex-start;
     margin-bottom: 5%;
-
 }
 
 #endLocation {
@@ -184,6 +185,7 @@ input {
     z-index: 9;
 }
 
+
 .FooterStatus {
     display: inline-block;
     width: 25%;
@@ -219,3 +221,33 @@ input {
     background-color: rgb(121,168,84);
     border-radius: 100%;
 }
+
+#walk{
+    cursor: pointer;
+}
+
+#bike{
+    cursor: pointer;
+}
+
+#train{
+    cursor: pointer;
+}
+
+#bus{
+    cursor: pointer;
+}
+
+#car{
+    cursor: pointer;
+}
+
+#journeyHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.giveLocation{
+    cursor: pointer;
+}
+
