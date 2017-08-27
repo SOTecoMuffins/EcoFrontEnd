@@ -189,7 +189,6 @@ input {
     width: 25%;
     height: 100%;
     z-index: 10;
-    background-color: orange;
     margin: 0;
     margin-right: -3px;
     vertical-align: top;
@@ -197,4 +196,26 @@ input {
 
 .FooterStatus label{
     text-align: center;
+}
+
+.green-label {
+    color: rgb(121,168,84);
+}
+
+.green-label .data {
+    font-size: 30px;
+}
+
+.white-label{
+    color: white;
+    font-size:12px;
+    padding-top: 20px;
+}
+
+.footerstatus img {
+    height: 50%;
+    width: 50%;
+    margin: 25%;
+    background-color: rgb(121,168,84);
+    border-radius: 100%;
 }

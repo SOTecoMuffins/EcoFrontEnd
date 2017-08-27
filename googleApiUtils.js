@@ -260,8 +260,8 @@
         xhr.onload = function() {
             alert(xhr.responseText);
             var eco = $("#eco .data");
-            eco.text("test");
-            $("#carbon .data").text("test");
+            eco.text("10");
+            $("#carbon .data").text("0");
 
         };
         xhr.send(null);
