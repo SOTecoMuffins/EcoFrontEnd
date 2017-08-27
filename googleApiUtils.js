@@ -321,10 +321,18 @@ function deg2rad(deg) {
         var url = "http://ecomuffins.azurewebsites.net/Carbon/Calculate"+obj;
         xhr.open("POST", url, true);
         xhr.onload = function() {
+            alert(xhr.responseText);
+            var eco = $("#eco .data");
+            eco.text("10");
+            $("#carbon .data").text("0");
 
-            console.log(xhr.responseText);
         };
         xhr.send(null);
-
     }
+
+    function HideParent(){
+	    document.getElementById('greybar').style.display = 'block';
+	    document.getElementsByClassName('parentContainer')[0].style.display ="none";
+    }
+
 	  
