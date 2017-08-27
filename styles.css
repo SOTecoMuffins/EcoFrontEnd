@@ -17,6 +17,10 @@ h2{
    color: white;
 }
 
+#logoPic{
+	height:50px;
+}
+
 .parentContainer{
    position: absolute;
 }
@@ -80,6 +84,15 @@ h2{
    margin: 10px;
 }
 
+.modeButton:hover{
+   background-color: #587272;
+}
+
+#gogo:hover{
+   background-color: #79a854;
+   border-radius: 15px;
+}
+
 .locateMe{
    cursor: pointer;
 }
@@ -96,6 +109,7 @@ header{
    width: 100%;
    height: 10%;
    justify-content: center;
+   align-items: center;
 
 }
 
