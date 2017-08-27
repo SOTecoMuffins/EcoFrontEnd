@@ -9,12 +9,16 @@
 
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <meta property="og:image"         content="https://sotecomuffins.github.io/EcoFrontEnd/logo.png" />
+    <meta property="og:image" content="https://sotecomuffins.github.io/EcoFrontEnd/logo.png"/>
     <link rel="stylesheet" href="styles.css">
-    
+
 
     <script src="myScript.js"></script>
     <script src="googleApiUtils.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 </head>
@@ -27,16 +31,17 @@
 
 
 <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
+    js = d.createElement(s);
+    js.id = id;
     js.src = "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script>
 
-<script>window.twttr = (function(d, s, id) {
+<script>window.twttr = (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};
     if (d.getElementById(id)) return t;
@@ -45,7 +50,7 @@
     js.src = "https://platform.twitter.com/widgets.js";
     fjs.parentNode.insertBefore(js, fjs);
     t._e = [];
-    t.ready = function(f) {
+    t.ready = function (f) {
         t._e.push(f);
     };
     return t;
@@ -56,14 +61,15 @@
 
     <div id="map"></div>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAODOJeWGsOLEdqs13uV-qm1dAKTkZpcrA&callback=initMap"></script>
 
     <div class="parentContainer">
 
         <div class="inputContainer">
 
             <div id="journeyHeader">
-            <h2>Your journey begins here</h2>
+                <h2>Your journey begins here</h2>
             </div>
 
             <div class="origin">
@@ -73,7 +79,7 @@
 
             </div>
 
-            <div class ="destination">
+            <div class="destination">
 
                 <i class="material-icons buttonIcon">location_on</i>
                 <input type="text" id="endLocation" placeholder="Where are you going?">
@@ -90,38 +96,62 @@
             <img src="car.png" id="car" class="buttonIcon modeButton" onclick="onClickMode('DRIVING', 'car')">
         </div>
 
-        <div id="submitButton">
+        <div id="submitButton" onclick="HideParent(), request()">
 
-            <img class= "LetsGo" id="gogo" src="button.png" >
+            <img class="LetsGo" id="gogo" src="button.png">
 
         </div>
-        
-       
+
+
         <hr>
-        
-          <div class="fb-share-button" 
-            data-href="https://sotecomuffins.github.io/EcoFrontEnd/"
-            data-layout="button_count" 
-            data-size="small" 
-            data-mobile-iframe="true">
-            <a class="fb-xfbml-parse-ignore" 
-            target="_blank" 
-            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsotecomuffins.github.io%2FEcoFrontEnd%2F&amp;src=sdkpreparse">Share
-            </a>
-          </div>
 
-        <a class="twitter-share-button"
-           href="https://twitter.com/share"
-           data-size="default"
-           data-text="Make Nz Carbon Free!"
-           data-url="https://sotecomuffins.github.io/EcoFrontEnd/walk.png"
-           data-hashtags="summeroftech,zerocarbon,ecomuffins">
-            Tweet
-        </a>
-
-        <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
-        <script type="IN/Share"></script>
     </div>
+    <footer>
+        <div id="greybar">
+            <div class="FooterStatus" id="FooterIcon"></div>
+            <div class="FooterStatus" id="FooterCarbon">
+                <label>CARBON COST:</label>
+                <div id="carbon" class="green-label">
+                    <div class="data"></div>
+                    <div class="small">kg CO<sub>2</sub></div>
+                </div>
+
+            </div>
+            <div class="FooterStatus" id="FooterEco">
+                <label>ECO RATING:</label>
+                <div id="eco" class="green-label">
+                    <div class="data"></div>
+                    <div class="small">/10
+                    </div>
+                </div>
+
+            </div>
+            <div class="FooterStatus" id="FooterSocial">SHEAR YOUR JOURNEY</div>
+            <div id="social">
+                <div class="fb-share-button"
+                     data-href="https://sotecomuffins.github.io/EcoFrontEnd/"
+                     data-layout="button_count"
+                     data-size="small"
+                     data-mobile-iframe="true">
+                    <a class="fb-xfbml-parse-ignore"
+                       target="_blank"
+                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsotecomuffins.github.io%2FEcoFrontEnd%2F&amp;src=sdkpreparse">Share
+                    </a>
+                </div>
+
+                <a class="twitter-share-button"
+                   href="https://twitter.com/share"
+                   data-size="default"
+                   data-text="Make Nz Carbon Free!"
+                   data-url="https://sotecomuffins.github.io/EcoFrontEnd/walk.png"
+                   data-hashtags="summeroftech,zerocarbon,ecomuffins">
+                    Tweet
+                </a>
+
+                <script src="https://platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                <script type="IN/Share"></script>
+            </div>
+    </footer>
 </div>
 </body>
 </html>

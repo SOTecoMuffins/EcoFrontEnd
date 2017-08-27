@@ -1,172 +1,200 @@
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
 #map {
-   height: 100%;
-   width: 100%
+    height: 100%;
+    width: 100%
 }
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
-   height: 100%;
-   margin: 0;
-   padding: 0;
-   font-family: "Source Sans Pro"
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Source Sans Pro"
 }
 
-h2{
-   font-weight: bold;
-   color: white;
+h2 {
+    font-weight: bold;
+    color: white;
 }
 
-#logoPic{
-	height:50px;
+#logoPic {
+    height: 50px;
 }
 
-.parentContainer{
-   position: absolute;
+.parentContainer {
+    position: absolute;
 }
 
 .homepage {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
 
 .origin {
-   display: flex;
-   background-color: white;
-   justify-content: center;
-   align-items: center;
-   margin-bottom:5%;
-   margin-top: 5%;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
 
 }
-#startlocation{
-   width: 100%;
-   height: 50px;
-   justify-content: center;
-   align-items: center;
-   margin: 10px;
-   border:none;
+
+#startlocation {
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: none;
 }
 
-.inputContainer{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .destination {
-   display: flex;
-   background-color: white;
-   justify-content: center;
-   align-items: flex-start;
-   margin-bottom: 5%;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 5%;
 
 }
 
-#endLocation{
-   width: 100%;
-   height: 50px;
-   margin: 10px;
-   border:none;
+#endLocation {
+    width: 100%;
+    height: 50px;
+    margin: 10px;
+    border: none;
 }
 
-.homepage{
-   display: flex;
-   flex-wrap: wrap;
+.homepage {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.buttonIcon{
-   display: flex;
-   align-items: center;
-   height: 50px;
-   margin: 10px;
+.buttonIcon {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 10px;
 }
 
-.modeButton:hover{
-   background-color: #587272;
+.modeButton:hover {
+    background-color: #587272;
 }
 
-#gogo:hover{
-   background-color: #79a854;
-   border-radius: 15px;
+#gogo:hover {
+    background-color: #79a854;
+    border-radius: 15px;
 }
 
-.locateMe{
-   cursor: pointer;
+.locateMe {
+    cursor: pointer;
 }
 
-.buttonIconContainer{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
+.buttonIconContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-header{
-   display: flex;
-   background-color: white;
-   width: 100%;
-   height: 10%;
-   justify-content: center;
-   align-items: center;
+header {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
 
 }
 
-.letsGo{
-   height: 50px;
-   margin-top: 10px;
+.letsGo {
+    height: 50px;
+    margin-top: 10px;
 }
 
-#submitButton{
-   display:flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
+#submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.modeButton{
-   background-color: #9b9b9b ;
-   border-radius: 50%;
+.modeButton {
+    background-color: #9b9b9b;
+    border-radius: 50%;
 }
 
-::placeholder{
-   color: #79a854 ;
+::placeholder {
+    color: #79a854;
 }
 
-input{
-   color: #79a854 ;
+input {
+    color: #79a854;
 }
 
-.highlightedIcon{
-   background-color: #79a854 !important;
+.highlightedIcon {
+    background-color: #79a854 !important;
 }
 
-#walk{
-   cursor: pointer;
+#walk {
+    cursor: pointer;
 }
 
-#bike{
-   cursor: pointer;
+#bike {
+    cursor: pointer;
 }
 
-#train{
-   cursor: pointer;
+#train {
+    cursor: pointer;
 }
 
-#bus{
-   cursor: pointer;
+#bus {
+    cursor: pointer;
 }
 
-#car{
-   cursor: pointer;
+#car {
+    cursor: pointer;
 }
 
-#journeyHeader{
-   display: flex;
-   justify-content: center;
+#journeyHeader {
+    display: flex;
+    justify-content: center;
 }
 
-.giveLocation{
-   cursor: pointer;
+.giveLocation {
+    cursor: pointer;
+}
+
+#greybar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 16%;
+    width: 100%;
+    background-color: gray;
+    z-index: 9;
+}
+
+.FooterStatus {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    z-index: 10;
+    background-color: orange;
+    margin: 0;
+    margin-right: -3px;
+    vertical-align: top;
+}
+
+.FooterStatus label{
+    text-align: center;
 }
