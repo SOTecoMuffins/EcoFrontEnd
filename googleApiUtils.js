@@ -2,6 +2,7 @@
  var previousMode = "WALKING";
  var mode1 = 'walk'
  var geocoder;
+ var distance;
   
  var posAdded = new Boolean(false);
       function initMap() {
@@ -224,7 +225,7 @@
 		var latTwo;
 		var calDistance = function(langStart,latStart,longEnd,latEnd){
 			if(lngOne && lngTwo && latOne && latTwo){
-			console.log(getDistanceFromLatLonInKm(langStart, latStart,longEnd, latEnd));
+			distance = getDistanceFromLatLonInKm(langStart, latStart,longEnd, latEnd);
 			}
 		}
 		calLat(_start, function(value){
@@ -315,16 +316,16 @@ function deg2rad(deg) {
                 transportType=4;
         }
 
-        var travelDistance = 999;
-        var obj = "?TransportType="+transportType+"&Distance="+travelDistance;
+        var obj = "?TransportType="+transportType+"&Distance="+distance;
         var xhr = new XMLHttpRequest();
         var url = "http://ecomuffins.azurewebsites.net/Carbon/Calculate"+obj;
         xhr.open("POST", url, true);
         xhr.onload = function() {
-            alert(xhr.responseText);
-            var eco = $("#eco .data");
-            eco.text("10");
-            $("#carbon .data").text("0");
+            var jsondata = $.parseJSON(xhr.responseText);
+
+            
+            $("#eco .data").text(jsondata.ecoRating);
+            $("#carbon .data").text(jsondata.carbonKg);
 
         };
         xhr.send(null);
