@@ -149,7 +149,7 @@
 			console.log("worked");
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
-        document.getElementById('LetsGo').addEventListener('click', onChangeHandler);
+        document.getElementById('gogo').addEventListener('click', onChangeHandler);
       }
 	  function findMyLocation(){
 		 posAdded = true;
@@ -172,16 +172,10 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }  
 	  }
-	  function findMyLonglat(addy){
-		infoWindow = new google.maps.InfoWindow;
-        if (navigator.geolocation) {
-          var pos = navigator.geolocation.getCurrentPosition(addy);
-		  var crd = pos.coords;
-		  console.log('Your current position is:');
-			console.log(`Latitude : ${crd.latitude}`);
-			console.log(`Longitude: ${crd.longitude}`);
-		console.log(`More or less ${crd.accuracy} meters.`);
-		}
+	  function displayDis(response){
+		  console.log(response);
+		 // google.maps.geometry.spherical.computeDistanceBetween(response);
+		
 	  }
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -212,6 +206,7 @@
           travelMode: previousMode
         }, function(response, status) {
           if (status === 'OK') {
+			displayDis(response.routes);
             directionsDisplay.setDirections(response);
           } else {
             window.alert('please enter a valid location');
