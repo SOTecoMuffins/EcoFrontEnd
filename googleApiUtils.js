@@ -1,4 +1,4 @@
- var map, infoWindow, pos, ride, startLongLat, endLongLat;
+ var map, infoWindow, pos, ride;
  var previousMode = "WALKING";
  var mode1 = 'walk'
  
@@ -172,30 +172,11 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }  
 	  }
-	 function SetStart(address){
-		 startLongLat = address;
-	 }
-	 function SetStart(address){
-		 startLongLat = address;
-	 }
-	 function codeAddress(address,address2, save location) {
-		geocoder.geocode( { 'address' : address }, function( results, status ) {
-        if( status == google.maps.GeocoderStatus.OK ) {
-			results[0].geometry.location
-             );
-        } else {
-            alert( 'Geocode was not successful for the following reason: ' + status );
-        }
-		} );
-		geocoder.geocode( { 'address' : address }, function( results, status ) {
-        if( status == google.maps.GeocoderStatus.OK ) {
-			results[0].geometry.location
-             );
-        } else {
-            alert( 'Geocode was not successful for the following reason: ' + status );
-        }
-		} );
-}
+	  function displayDis(response){
+		  console.log(response);
+		  google.maps.geometry.spherical.computeDistanceBetween ();
+		
+	  }
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
