@@ -5,98 +5,151 @@
  var posAdded = new Boolean(false);
       function initMap() {
 		var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+			polylineOptions: {
+			strokeColor: "green"
+			}
+		
+		});
 		 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -41.2865, lng: 174.7762},
-          zoom: 6,
+          center: {lat: -36.8485, lng: 174.7633},
+          zoom: 10,
+		  polylineOptions: {
+		  strokeColor: "#79A854"
+          },
 		   styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
             {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
+                "saturation": "-100"
             }
-          ]
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": "-100"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": -25
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": -25
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ffff00"
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -97
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -100
+            }
+        ]
+    }
+]
         });
 		directionsDisplay.setMap(map);
 		 var onChangeHandler = () => {
 			console.log("worked");
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
-        document.getElementById('LetsGo').addEventListener('click', onChangeHandler);
+        document.getElementById('gogo').addEventListener('click', onChangeHandler);
       }
 	  function findMyLocation(){
 		 posAdded = true;
@@ -119,16 +172,10 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }  
 	  }
-	  function findMyLonglat(addy){
-		infoWindow = new google.maps.InfoWindow;
-        if (navigator.geolocation) {
-          var pos = navigator.geolocation.getCurrentPosition(addy);
-		  var crd = pos.coords;
-		  console.log('Your current position is:');
-			console.log(`Latitude : ${crd.latitude}`);
-			console.log(`Longitude: ${crd.longitude}`);
-		console.log(`More or less ${crd.accuracy} meters.`);
-		}
+	  function displayDis(response){
+		  console.log(response);
+		  google.maps.geometry.spherical.computeDistanceBetween ();
+		
 	  }
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -159,6 +206,7 @@
           travelMode: previousMode
         }, function(response, status) {
           if (status === 'OK') {
+			displayDis(response.routes);
             directionsDisplay.setDirections(response);
           } else {
             window.alert('please enter a valid location');
@@ -181,4 +229,39 @@
     current.classList.add("highlightedIcon");
 	}
 
+	function request(){
+        var transportType;
+
+        switch(mode1) {
+            case bus:
+                transportType=0;
+                break
+            case train:
+                transportType=1;
+                break
+            case bike:
+                transportType=2;
+                break
+            case walk:
+                transportType=3;
+                break
+            case car:
+                transportType=4;
+                break
+            default:
+                transportType=4;
+        }
+
+        var travelDistance = 999;
+        var obj = "?TransportType="+transportType+"&Distance="+travelDistance;
+        var xhr = new XMLHttpRequest();
+        var url = "http://ecomuffins.azurewebsites.net/Carbon/Calculate"+obj;
+        xhr.open("POST", url, true);
+        xhr.onload = function() {
+
+            console.log(xhr.responseText);
+        };
+        xhr.send(null);
+
+    }
 	  
