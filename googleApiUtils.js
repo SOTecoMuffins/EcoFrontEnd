@@ -234,4 +234,39 @@
     current.classList.add("highlightedIcon");
 	}
 
+	function request(){
+        var transportType;
+
+        switch(mode1) {
+            case bus:
+                transportType=0;
+                break
+            case train:
+                transportType=1;
+                break
+            case bike:
+                transportType=2;
+                break
+            case walk:
+                transportType=3;
+                break
+            case car:
+                transportType=4;
+                break
+            default:
+                transportType=4;
+        }
+
+        var travelDistance = 999;
+        var obj = "?TransportType="+transportType+"&Distance="+travelDistance;
+        var xhr = new XMLHttpRequest();
+        var url = "http://ecomuffins.azurewebsites.net/Carbon/Calculate"+obj;
+        xhr.open("POST", url, true);
+        xhr.onload = function() {
+
+            console.log(xhr.responseText);
+        };
+        xhr.send(null);
+
+    }
 	  
