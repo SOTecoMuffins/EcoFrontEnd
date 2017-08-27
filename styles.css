@@ -84,6 +84,15 @@ h2{
    margin: 10px;
 }
 
+.modeButton:hover{
+   background-color: #587272;
+}
+
+#gogo:hover{
+   background-color: #79a854;
+   border-radius: 15px;
+}
+
 .locateMe{
    cursor: pointer;
 }
